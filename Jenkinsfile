@@ -17,7 +17,3 @@ node {
     sh 'npm test'
   }
 }
-
-triggers {
-  pollSCM('*/2 * * * *')
-}
