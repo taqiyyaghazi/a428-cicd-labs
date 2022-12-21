@@ -3,12 +3,11 @@ node {
     stage('Checkout') {
       checkout scm
     }
-    stage('Install dependencies') {
+    stage('Build') {
       sh 'npm install'
     }
     stage('Test') {
       sh './jenkins/scripts/test.sh'
-
     }
   }
 }
