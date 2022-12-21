@@ -3,7 +3,10 @@ node {
   stage('Checkout') {
     reactApp = checkout scm
   }
+  stage('NodeJs') {
+    tool 'NodeJS'
+  }
   stage('Install dependencies') {
-    sh '/c/Program Files/nodejs/npm install'
+    sh 'npm install'
   }
 }
