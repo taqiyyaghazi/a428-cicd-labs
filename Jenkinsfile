@@ -4,6 +4,7 @@ node {
       checkout scm
     }
     stage('Build') {
+      sh 'ls'
       sh 'npm cache clean --force'
       sh 'npm install'
     }
