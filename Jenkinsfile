@@ -1,5 +1,5 @@
 node {
-  docker.image('node:lts-buster-slim').withRun('-p 3000:3000').inside {
+  docker.image('node:lts-buster-slim').inside ('-p 3000:3000') {
     stage('Checkout') {
       checkout scm
     }
