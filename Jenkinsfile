@@ -4,9 +4,6 @@ node {
       checkout scm
     }
     stage('Build') {
-      sh 'rm -rf node_modules'
-      sh 'rm -f package-lock.json'
-      sh 'npm cache clean --force'
       sh 'npm install'
     }
     stage('Test') {
