@@ -1,5 +1,5 @@
 node {
-  docker.image('node:lts-buster-slim').inside {
+  docker.image('node:lts-buster-slim').withRun('-p 3000:3000').inside {
     stage('Checkout') {
       checkout scm
     }
@@ -8,10 +8,11 @@ node {
     }
     stage('Test') {
       sh './jenkins/scripts/test.sh'
+      input message: 'Lanjutkan ke tahap Deploy? (Click "Proceed" to continue)'
     }
     stage('Deliver') {
       sh './jenkins/scripts/deliver.sh'
-      input message: 'Finished using the web site? (Click "Proceed" to continue)'
+      sleep 60
       sh './jenkins/scripts/kill.sh'
     }
   }
